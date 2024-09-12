@@ -3,25 +3,24 @@ import * as ts from 'typescript';
 function transformer(program: ts.Program): ts.TransformerFactory<ts.SourceFile> {
     return (context: ts.TransformationContext) => {
         const visitor: ts.Visitor = (node) => {
-            // Check if the node is a variable declaration
-            if (ts.isVariableDeclaration(node)) {
-                // Check if the variable has the type annotation 'fuck it'
-                if (node.type && node.type.getText() === 'fuck it') {
-                    // Replace 'fuck it' with 'any'
-                    const updatedDeclaration = ts.factory.updateVariableDeclaration(
+            // Check if the node is a variable declaration and has a type
+            if (ts.isVariableDeclaration(node) && node.type) {
+                // Check if the type is the "any" keyword
+                if (node.type.kind === ts.SyntaxKind.AnyKeyword) {
+                    // Replace with a custom 'FUCK IT' format (non-standard syntax)
+                    const newNode = ts.factory.updateVariableDeclaration(
                         node,
-                        node.name,
+                        ts.factory.createIdentifier(node.name.getText() + ' FUCK IT'),
                         node.exclamationToken,
-                        ts.factory.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword), // Replace with 'any'
+                        undefined, // We don't want to insert a type node here
                         node.initializer
                     );
-                    return updatedDeclaration;
+                    return newNode;
                 }
             }
             return ts.visitEachChild(node, visitor, context);
         };
 
-        // The actual transformation function applied to the SourceFile
         return (node: ts.SourceFile): ts.SourceFile => {
             return ts.visitEachChild(node, visitor, context) as ts.SourceFile;
         };
