@@ -1,5 +1,5 @@
 {
-  "name": "FUCK-IT",
+  "name": "fit-transformer",
   "version": "1.0.0",
   "description": "This TS transformer Plugin allows you to use the word Fuck it in your ts files instad of any",
   "scripts": {

@@ -8,7 +8,7 @@ Tired of writing `as any` or typing `any` like a responsible developer? Wish you
 The **Fuck-It Transformer** is your new best friend. It lets you declare variables in TypeScript like this:
 
 ```typescript
-let x fuck it = 42;
+let x fuck it = 42
 ```
 
 And TypeScript will magically understand that you actually meant:
@@ -32,19 +32,19 @@ You didn’t think I’d make this difficult, did you? Just install it like any 
 ### Using NPM:
 
 ```bash
-npm install fuck-it-transformer
+npm install fit-transformer
 ```
 
 ### Using Yarn:
 
 ```bash
-yarn add fuck-it-transformer
+yarn add fit-transformer
 ```
 
 ### Using PNPM:
 
 ```bash
-pnpm install fuck-it-transformer
+pnpm install fit-transformer
 ```
 
 That’s it! It patches TypeScript automatically. You don’t need to lift a finger (or configure a config file). We do it all for you in a truly *fuck it* style. 🙌
