@@ -1,0 +1,15 @@
+{
+  "name": "FUCK-IT",
+  "version": "1.0.0",
+  "description": "This TS transformer Plugin allows you to use the word Fuck it in your ts files instad of any",
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "ts-patch install"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "ts-patch": "^3.2.1"
+  }
+}
